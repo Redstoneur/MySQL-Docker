@@ -1,41 +1,62 @@
 ## MySQL-Docker
 
-Bienvenue dans le repo MySQL-Docker! Ici, tu trouveras tout ce dont tu as besoin pour déployer rapidement un environnement MySQL avec Docker.
+Bienvenue dans le repo MySQL-Docker! Ici, tu trouveras tout ce dont tu as besoin pour déployer rapidement un environnement MySQL avec Docker, y compris la possibilité d'importer un dump SQL initial.
 
 ### Instructions d'utilisation
 
 1. Clone le repo sur ta machine locale.
 
-```bash
-git clone https://github.com/Redstoneur/MySQL-Docker.git
-```
+  ```bash
+  git clone https://github.com/Redstoneur/MySQL-Docker.git
+  ```
 
 2. Modifie le fichier `docker-compose.yaml` selon tes besoins. Assure-toi de changer les mots de passe par défaut dans la section `environment` pour renforcer la sécurité.
 
-```yaml
-# Extrait du fichier docker-compose.yaml (container mysql)
-...
-environment:
-  MYSQL_ROOT_PASSWORD: ton_mot_de_passe_root # todo: change root password
-  MYSQL_DATABASE: ton_nom_de_base_de_donnees # todo: change database name
-  MYSQL_USER: ton_utilisateur_mysql # todo: change user name
-  MYSQL_PASSWORD: ton_mot_de_passe_mysql # todo: change user password
-...
-```
-```yaml
-# Extrait du fichier docker-compose.yaml (container phpmyadmin)
-...
-environment:
-  MYSQL_ROOT_PASSWORD: your_root_password # todo: change root password
-...
-```
+  ```yaml
+  # Extrait du fichier docker-compose.yaml (container mysql)
+  ...
+  environment:
+    MYSQL_ROOT_PASSWORD: ton_mot_de_passe_root # todo: change root password
+    MYSQL_DATABASE: ton_nom_de_base_de_donnees # todo: change database name
+    MYSQL_USER: ton_utilisateur_mysql # todo: change user name
+    MYSQL_PASSWORD: ton_mot_de_passe_mysql # todo: change user password
+  ...
+  ```
+  ```yaml
+  # Extrait du fichier docker-compose.yaml (container phpmyadmin)
+  ...
+  environment:
+    MYSQL_ROOT_PASSWORD: your_root_password # todo: change root password
+  ...
+  ```
 
+3. Modifie le fichier dump.sql avec le contenu de ton dump SQL. Assure-toi également de mettre à jour le nom de la base de données dans le script.
+
+  ```sql
+  # Base de données - Start
+  # todo : changer le nom de la base de données en fonction de la config | default => database: your_database_name
+  DROP DATABASE IF EXISTS your_database_name;
+  CREATE DATABASE IF NOT EXISTS your_database_name;
+  USE your_database_name;
+  # Base de données - End
+  
+  # Dump de la base de données - Start
+  # todo : Mettre le dump de la base de données ci-dessous
+  
+  # Dump de la base de données - End
+  
+  # Ajout des privilèges - Start
+  # todo : changer l'utilisateur en fontion de la config | default => user: your_mysql_user, password: your_mysql_password , database: your_database_name
+  GRANT ALL PRIVILEGES ON your_database_name.* TO 'your_mysql_user'@'%' WITH GRANT OPTION;
+  FLUSH PRIVILEGES;
+  # Ajout des privilèges - End
+  ```
 
 3. Démarre les services MySQL et PHPMyAdmin en utilisant la commande suivante:
 
-```bash
-docker-compose up -d
-```
+  ```bash
+  docker-compose up -d
+  ```
 
 ### Accès
 
