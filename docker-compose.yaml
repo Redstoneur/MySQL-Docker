@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: your_root_password # todo: change root password
+      MYSQL_DATABASE: your_database_name # todo: change database name
+      MYSQL_USER: your_mysql_user # todo: change user name
+      MYSQL_PASSWORD: your_mysql_password # todo: change user password
+    networks:
+      - my_network
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin-container
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: your_root_password # todo: change root password
+    ports:
+      - "8080:80"
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
