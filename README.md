@@ -1,5 +1,11 @@
 ## MySQL-Docker
 
+![License](https://img.shields.io/github/license/Redstoneur/MySQL-Docker)
+![Top Language](https://img.shields.io/github/languages/top/Redstoneur/MySQL-Docker)
+![Latest Release](https://img.shields.io/github/v/release/Redstoneur/MySQL-Docker)
+![Release Date](https://img.shields.io/github/release-date/Redstoneur/MySQL-Docker)
+![Last Commit](https://img.shields.io/github/last-commit/Redstoneur/MySQL-Docker)
+
 Bienvenue dans le repo MySQL-Docker! Ici, tu trouveras tout ce dont tu as besoin pour déployer rapidement un environnement MySQL avec Docker, y compris la possibilité d'importer un dump SQL initial.
 
 ### Instructions d'utilisation
@@ -7,7 +13,8 @@ Bienvenue dans le repo MySQL-Docker! Ici, tu trouveras tout ce dont tu as besoin
 1. Clone le repo sur ta machine locale.
 
   ```bash
-  git clone https://github.com/Redstoneur/MySQL-Docker.git
+  git clone https://github.com/Redstoneur/MySQL-Docker.git MySQL-Docker
+  cd MySQL-Docker
   ```
 
 2. Modifie le fichier `docker-compose.yaml` selon tes besoins. Assure-toi de changer les mots de passe par défaut dans la section `environment` pour renforcer la sécurité.
