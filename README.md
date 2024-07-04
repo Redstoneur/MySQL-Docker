@@ -1,10 +1,27 @@
 ## MySQL-Docker
 
+---
+
 ![License](https://img.shields.io/github/license/Redstoneur/MySQL-Docker)
 ![Top Language](https://img.shields.io/github/languages/top/Redstoneur/MySQL-Docker)
+![Size](https://img.shields.io/github/repo-size/Redstoneur/MySQL-Docker)
+![Contributors](https://img.shields.io/github/contributors/Redstoneur/MySQL-Docker)
+![Last Commit](https://img.shields.io/github/last-commit/Redstoneur/MySQL-Docker)
+![Issues](https://img.shields.io/github/issues/Redstoneur/MySQL-Docker)
+![Pull Requests](https://img.shields.io/github/issues-pr/Redstoneur/MySQL-Docker)
+
+---
+
+![Forks](https://img.shields.io/github/forks/Redstoneur/MySQL-Docker)
+![Stars](https://img.shields.io/github/stars/Redstoneur/MySQL-Docker)
+![Watchers](https://img.shields.io/github/watchers/Redstoneur/MySQL-Docker)
+
+---
+
 ![Latest Release](https://img.shields.io/github/v/release/Redstoneur/MySQL-Docker)
 ![Release Date](https://img.shields.io/github/release-date/Redstoneur/MySQL-Docker)
-![Last Commit](https://img.shields.io/github/last-commit/Redstoneur/MySQL-Docker)
+![build](https://img.shields.io/github/workflow/status/Redstoneur/MySQL-Docker/Docker%20Compose%20Test%20and%20Check)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ce53daf0f4d64d4eaffc2fcf810c07bf)](https://app.codacy.com/gh/Redstoneur/MySQL-Docker/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 Bienvenue dans le repo MySQL-Docker! Ici, tu trouveras tout ce dont tu as besoin pour déployer rapidement un
 environnement MySQL avec Docker, y compris la possibilité d'importer un dump SQL initial.
