@@ -1,0 +1,39 @@
+name: Docker Compose Test and Check
+
+on: [ push, pull_request ]
+
+jobs:
+  docker-compose-up:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Run Docker Compose
+        run: docker-compose up --build -d
+
+      - name: Check MySQL Container
+        run: docker container inspect mysql-container --format '{{.State.Health.Status}}' | grep healthy
+
+      - name: Check PHPMyAdmin Container
+        run: docker container inspect phpmyadmin-container --format '{{.State.Running}}' | grep true
+
+      - name: Check MySQL Container Port
+        run: |
+          timeout 10 bash -c '</dev/tcp/localhost/3306'
+          if [ $? -eq 0 ]; then echo "MySQL port 3306 is open"; else echo "MySQL port 3306 is not open"; exit 1; fi
+
+      - name: Check PHPMyAdmin Container Port
+        run: |
+          timeout 10 bash -c '</dev/tcp/localhost/8080'
+          if [ $? -eq 0 ]; then echo "PHPMyAdmin port 8080 is open"; else echo "PHPMyAdmin port 8080 is not open"; exit 1; fi
+
+      - name: Tear down Docker Compose
+        run: docker-compose down
+
+      - name: Remove Docker Compose Containers and Networks
+        run: docker container prune -f
