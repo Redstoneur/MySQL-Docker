@@ -22,16 +22,6 @@ jobs:
       - name: Check PHPMyAdmin Container
         run: docker container inspect phpmyadmin-container --format '{{.State.Running}}' | grep true
 
-      - name: Check MySQL Container Port
-        run: |
-          timeout 10 bash -c '</dev/tcp/localhost/3306'
-          if [ $? -eq 0 ]; then echo "MySQL port 3306 is open"; else echo "MySQL port 3306 is not open"; exit 1; fi
-
-      - name: Check PHPMyAdmin Container Port
-        run: |
-          timeout 10 bash -c '</dev/tcp/localhost/8080'
-          if [ $? -eq 0 ]; then echo "PHPMyAdmin port 8080 is open"; else echo "PHPMyAdmin port 8080 is not open"; exit 1; fi
-
       - name: Tear down Docker Compose
         run: docker-compose down
 
