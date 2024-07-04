@@ -38,6 +38,8 @@ environnement MySQL avec Docker, y compris la possibilité d'importer un dump SQ
 2. Modifie le fichier `docker-compose.yaml` selon tes besoins. Assure-toi de changer les mots de passe par défaut dans
    la section `environment` pour renforcer la sécurité.
 
+   > voir [docker-compose.yaml](./docker-compose.yaml) pour plus d'informations sur la configuration.
+
     ```yaml
     # Extrait du fichier docker-compose.yaml (container mysql)
       ...
@@ -48,7 +50,7 @@ environnement MySQL avec Docker, y compris la possibilité d'importer un dump SQ
       MYSQL_PASSWORD: ton_mot_de_passe_mysql # todo: change user password
       ...
     ```
-    
+
     ```yaml
     # Extrait du fichier docker-compose.yaml (container phpmyadmin)
       ...
@@ -59,6 +61,8 @@ environnement MySQL avec Docker, y compris la possibilité d'importer un dump SQ
 
 3. Modifie le fichier dump.sql avec le contenu de ton dump SQL. Assure-toi également de mettre à jour le nom de la base
    de données dans le script.
+
+   > voir [dump.sql](./dump.sql) pour configurer le dump SQL.
 
     ```sql
     # Base de données - Start
@@ -82,6 +86,8 @@ environnement MySQL avec Docker, y compris la possibilité d'importer un dump SQ
 
 4. Démarre les services MySQL et PHPMyAdmin en utilisant la commande suivante:
 
+   > voir [docs.docker.com](https://docs.docker.com/) pour plus d'informations sur Docker et Docker Compose.
+
     ```bash
     docker-compose up -d
     ```
@@ -95,7 +101,7 @@ environnement MySQL avec Docker, y compris la possibilité d'importer un dump SQ
     - Password: `ton_mot_de_passe_mysql`
 
 - **PHPMyAdmin:**
-    - [http://localhost:8080](http://localhost:8080)
+    - URL: [http://localhost:8080](http://localhost:8080)
     - Username: `root`
     - Password: `ton_mot_de_passe_root`
 
