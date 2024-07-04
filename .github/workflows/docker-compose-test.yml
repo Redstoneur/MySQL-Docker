@@ -23,6 +23,9 @@ jobs:
       - name: Run Docker Compose
         run: docker-compose up --build -d
 
+      - name: Wait for MySQL Container to be ready
+        run: sleep 30
+
       - name: Check MySQL Container
         run: docker container inspect mysql-container --format '{{.State.Health.Status}}' | grep healthy
 
