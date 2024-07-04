@@ -1,6 +1,13 @@
 name: Docker Compose Test and Check
 
-on: [ push, pull_request ]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+      - dev
 
 jobs:
   docker-compose-up:
