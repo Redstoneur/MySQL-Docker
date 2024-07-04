@@ -23,8 +23,8 @@
 ![build](https://img.shields.io/github/workflow/status/Redstoneur/MySQL-Docker/Docker%20Compose%20Test%20and%20Check)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/ce53daf0f4d64d4eaffc2fcf810c07bf)](https://app.codacy.com/gh/Redstoneur/MySQL-Docker/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
-Bienvenue dans le repo MySQL-Docker! Ici, tu trouveras tout ce dont tu as besoin pour déployer rapidement un
-environnement MySQL avec Docker, y compris la possibilité d'importer un dump SQL initial.
+Bienvenue dans le repo MySQL-Docker ! Ici, tu trouveras tout ce dont tu as besoin pour déployer rapidement un
+environnement MySQL avec Docker, y compris la possibilité d'importer un `Dump SQL initial`.
 
 ### Instructions d'utilisation
 
@@ -35,34 +35,34 @@ environnement MySQL avec Docker, y compris la possibilité d'importer un dump SQ
     cd MySQL-Docker
     ```
 
-2. Modifie le fichier `docker-compose.yaml` selon tes besoins. Assure-toi de changer les mots de passe par défaut dans
-   la section `environment` pour renforcer la sécurité.
+2. Modifie le fichier [`docker-compose.yaml`](./docker-compose.yaml) selon tes besoins. Assure-toi de changer les mots
+   de passe par défaut dans la section `environment` pour renforcer la sécurité.
 
-   > voir [docker-compose.yaml](./docker-compose.yaml) pour plus d'informations sur la configuration.
+   > voir [`docker-compose.yaml`](./docker-compose.yaml) pour plus d'informations sur la configuration.
 
     ```yaml
     # Extrait du fichier docker-compose.yaml (container mysql)
-      ...
+    # ...
     environment:
       MYSQL_ROOT_PASSWORD: ton_mot_de_passe_root # todo: change root password
       MYSQL_DATABASE: ton_nom_de_base_de_donnees # todo: change database name
       MYSQL_USER: ton_utilisateur_mysql # todo: change user name
       MYSQL_PASSWORD: ton_mot_de_passe_mysql # todo: change user password
-      ...
+    # ...
     ```
 
     ```yaml
     # Extrait du fichier docker-compose.yaml (container phpmyadmin)
-      ...
+    # ...
     environment:
       MYSQL_ROOT_PASSWORD: your_root_password # todo: change root password
-      ...
+    # ...
     ```
 
-3. Modifie le fichier dump.sql avec le contenu de ton dump SQL. Assure-toi également de mettre à jour le nom de la base
-   de données dans le script.
+3. Modifie le fichier [`dump.sql`](./dump.sql) avec le contenu de ton `Dump SQL`. Assure-toi également de mettre à jour
+   le nom de la base de données dans le script.
 
-   > voir [dump.sql](./dump.sql) pour configurer le dump SQL.
+   > voir [`dump.sql`](./dump.sql) pour configurer le `Dump SQL`.
 
     ```sql
     # Base de données - Start
@@ -78,13 +78,13 @@ environnement MySQL avec Docker, y compris la possibilité d'importer un dump SQ
     # Dump de la base de données - End
     
     # Ajout des privilèges - Start
-    # todo : changer l'utilisateur en fontion de la config | default => user: your_mysql_user, password: your_mysql_password , database: your_database_name
+    # todo : changer l'utilisateur en fonction de la config | default => user: your_mysql_user, password: your_mysql_password , database: your_database_name
     GRANT ALL PRIVILEGES ON your_database_name.* TO 'your_mysql_user'@'%' WITH GRANT OPTION;
     FLUSH PRIVILEGES;
     # Ajout des privilèges - End
     ```
 
-4. Démarre les services MySQL et PHPMyAdmin en utilisant la commande suivante:
+4. Démarre les services MySQL et PHPMyAdmin en utilisant la commande suivante :
 
    > voir [docs.docker.com](https://docs.docker.com/) pour plus d'informations sur Docker et Docker Compose.
 
@@ -101,7 +101,7 @@ environnement MySQL avec Docker, y compris la possibilité d'importer un dump SQ
     - Password: `ton_mot_de_passe_mysql`
 
 - **PHPMyAdmin:**
-    - URL: [http://localhost:8080](http://localhost:8080)
+    - URL: [`http://localhost:8080`](http://localhost:8080)
     - Username: `root`
     - Password: `ton_mot_de_passe_root`
 
@@ -110,5 +110,5 @@ environnement MySQL avec Docker, y compris la possibilité d'importer un dump SQ
 - Assure-toi que les ports `3306` et `8080` sur ta machine ne sont pas utilisés par d'autres applications.
 - N'oublie pas de sécuriser tes mots de passe et informations sensibles.
 
-Profite bien de ton environnement MySQL-Docker! Si tu as des questions ou des problèmes, n'hésite pas à les partager
+Profite bien de ton environnement MySQL-Docker ! Si tu as des questions ou des problèmes, n'hésite pas à les partager
 ici.
